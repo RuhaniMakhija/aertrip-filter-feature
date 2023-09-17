@@ -168,7 +168,7 @@ const Header = () => {
             const hours = Math.floor(totalSeconds / 3600); 
             const minutes = Math.floor((totalSeconds % 3600) / 60); 
             
-            console.log(price);
+            
             return (
                 <Card 
                     al={card.al}
