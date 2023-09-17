@@ -41,7 +41,7 @@ const Header = () => {
     }
 
 
-    
+   
    
 
 
@@ -167,7 +167,7 @@ const Header = () => {
             const totalSeconds = card.ft;
             const hours = Math.floor(totalSeconds / 3600); 
             const minutes = Math.floor((totalSeconds % 3600) / 60); 
-            const price = getPrice(card.fr, card.to);
+            
             console.log(price);
             return (
                 <Card 
@@ -177,7 +177,7 @@ const Header = () => {
                     at={card.at}
                     fr={card.fr}
                     to={card.to}
-                    price={price}
+                    
                 />
             )
         
