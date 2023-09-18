@@ -5,7 +5,7 @@ import { SlBag } from "react-icons/sl";
 import logo from "../../images/indigo.png"
 
 
-const Card = ({al,dt,ft,at,fr,to}) => {
+const Card = ({img,al,dt,ft,at,fr,to,price}) => {
     // var {at,fr,to}=card;
 
     // console.log(card);
@@ -13,7 +13,7 @@ const Card = ({al,dt,ft,at,fr,to}) => {
     <div className='main-container-card'>
       <div className='card-left-container'>
         <div className='logo-name-box'>
-            <img src={logo} className='logo' alt='logo'/>
+            <img src={img} className='logo' alt={al}/>
             <p>{al}</p>
         </div>
         <div className='icon-info'>
@@ -35,7 +35,7 @@ const Card = ({al,dt,ft,at,fr,to}) => {
             </div>
       </div>
       <div className='card-right-container'>
-        <h3>Rs.5567</h3>
+        <h3>Rs.{price}</h3>
         <button>View Fares</button>
       </div>
     </div>

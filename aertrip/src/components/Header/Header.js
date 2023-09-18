@@ -6,6 +6,10 @@ import { BsSun } from "react-icons/bs";
 import { AiFillCaretDown } from "react-icons/ai";
 import Aertrip from "../../api-data.json"
 import Card from '../Card/Card';
+import airindia from "../../images/airindia.png"
+import vistara from "../../images/vistara.png"
+import indigo from "../../images/indigo.png"
+
 
 
 const Header = () => {
@@ -18,19 +22,48 @@ const Header = () => {
 
     let arr=[];
     let flight=Aertrip.data.flights;
-  
+    
+
+    const airlineMapping = {
+        '6E': {
+            name: 'IndiGo Airlines',
+            logo: indigo,
+        },
+        'AI': {
+            name: 'Air India',
+            logo: airindia, 
+        },
+        'UK': {
+            name: 'Vistara',
+            logo: vistara,
+        },
+    };
+
+    // const airlineMapping = {
+    //     '6E': 'IndiGo Airlines',
+    //     'AI': 'Air India',
+    //     'UK': 'Vistara',
+    // };
+
+    
 
     const getFlight=(from,to)=>{
         flight.map((e)=>{
             let j=e.results.j;
             j.map((e)=>{
-                
+                let price=e.farepr;
                 let leg=e.leg;
                 leg.map((e)=>{
                     let flights=e.flights;
                     flights.map((e)=>{
                         if(from==e.fr && to==e.to){
-                            arr.push(e);
+                            const flightWithPrice = {
+                                ...e,
+                                price: price,
+                                airlineName: airlineMapping[e.al].name,
+                                airlineLogo: airlineMapping[e.al].logo,
+                            };
+                            arr.push(flightWithPrice);
                         }
                     })
                 })
@@ -39,6 +72,7 @@ const Header = () => {
         })
         setFilteredFlights(arr);
     }
+
 
 
    
@@ -171,13 +205,14 @@ const Header = () => {
             
             return (
                 <Card 
-                    al={card.al}
+                    img={card.airlineLogo}
+                    al={card.airlineName}
                     dt={card.dt}
                     ft={`${hours} hr ${minutes} min`}
                     at={card.at}
                     fr={card.fr}
                     to={card.to}
-                    
+                    price={card.price}
                 />
             )
         
