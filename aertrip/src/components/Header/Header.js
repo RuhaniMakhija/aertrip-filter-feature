@@ -39,11 +39,7 @@ const Header = () => {
         },
     };
 
-    // const airlineMapping = {
-    //     '6E': 'IndiGo Airlines',
-    //     'AI': 'Air India',
-    //     'UK': 'Vistara',
-    // };
+   
 
     
 

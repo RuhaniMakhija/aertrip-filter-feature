@@ -17,7 +17,7 @@ const Card = ({img,al,dt,ft,at,fr,to,price}) => {
             <p>{al}</p>
         </div>
         <div className='icon-info'>
-            <BiMessageRounded/><span className='num'>10.0</span>
+            <BiMessageRounded className='icon'/><span className='num'>10.0</span>
             <SlBag/>
         </div>
 
@@ -25,7 +25,7 @@ const Card = ({img,al,dt,ft,at,fr,to,price}) => {
       <div className='card-center-container'>
             <div className='time-deatils'>
                 <h3>{dt}</h3>
-                <p>{ft}</p>
+                <p className='ft'>{ft}</p>
                 <h3>{at}</h3>
             </div>
             <div className='route-details'>
@@ -36,7 +36,7 @@ const Card = ({img,al,dt,ft,at,fr,to,price}) => {
       </div>
       <div className='card-right-container'>
         <h3>Rs.{price}</h3>
-        <button>View Fares</button>
+        <button className='fares-btn'>View Fares</button>
       </div>
     </div>
   )
